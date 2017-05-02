@@ -1,5 +1,6 @@
 class Icecream < ApplicationRecord
-
+  belongs_to :user
+  
   validates :title, :description, :price, :image, presence: true
 
 	has_attached_file :image, styles: { :medium => "400x400#" }

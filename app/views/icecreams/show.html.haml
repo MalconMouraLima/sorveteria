@@ -6,11 +6,11 @@
       #recipe_info
         %p.title= @icecream.title
         %p= @icecream.description
-        %p= "Preço R$ #{@icecream.price}" 
-
+        %p= "Preço R$ #{@icecream.price}"
 
   .row
     .col-md-12
       = link_to "Voltar", root_path, class: "btn btn-default"
-      = link_to "Editar", edit_icecream_path, class: "btn btn-default"
-      = link_to "Deletar", icecream_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default"
+      - if user_signed_in?
+        = link_to "Editar", edit_icecream_path, class: "btn btn-default"
+        = link_to "Deletar", icecream_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default"

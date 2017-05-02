@@ -11,14 +11,17 @@
 		.container
 			.navbar-brand= link_to "Sorvetes Perruci", root_path
 
-
-			%ul.nav.navbar-nav.navbar-right
-				%li= link_to "Novo Sorvete", new_icecream_path
-				%li= link_to "Pedido", root_path
-				%li= link_to "Bairros e Taxas", root_path
-				%li= link_to "Sobre Nós", root_path
-				%li= link_to "Sair", root_path #, destroy_user_session_path, method: :delete
-
+			- if user_signed_in?
+				%ul.nav.navbar-nav.navbar-right
+					%li= link_to "Add Sorvete", new_icecream_path
+					%li= link_to "Pedido", root_path
+					%li= link_to "Sair", destroy_user_session_path, method: :delete
+			- else
+				%ul.nav.navbar-nav.navbar-right
+					%li= link_to "Bairros e Taxas", root_path
+					%li= link_to "Cadastre-se", new_user_registration_path
+					%li= link_to "Login", new_user_session_path
+					
 	.container
 		- flash.each do |name, msg|
 			= content_tag :div, msg, class: "alert"

@@ -9,11 +9,11 @@ class IcecreamsController < ApplicationController
 	end
 
 	def new
-    @icecream = Icecream.new
+    @icecream = current_user.icecreams.build
 	end
 
 	def create
-		@icecream = Icecream.new(icecream_params)
+		@icecream = current_user.icecreams.build(icecream_params)
 
 		if @icecream.save
 			redirect_to @icecream, notice: "Successfully created new ice cream"
