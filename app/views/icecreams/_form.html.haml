@@ -1,0 +1,15 @@
+= simple_form_for @icecream, html: { multipart: true } do |f|
+	- if @icecream.errors.any?
+		#errors
+			%p
+				= @icecream.errors.count
+				Prevented this ice cream froms saving
+			%ul
+				- @icecream.errors.full_messages.each do |msg|
+					%li= msg
+	.panel-body
+		= f.input :title, input_html: { class: 'form-control' }
+		= f.input :description, input_html: { class: 'form-control' }
+		= f.input :price, input_html: { class: 'form-control' }
+
+	= f.button :submit, class: "btn btn-primary"

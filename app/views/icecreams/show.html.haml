@@ -1,0 +1,6 @@
+%h1= @icecream.title
+%p= @icecream.description
+%p= @icecream.price
+
+= link_to "Voltar", root_path, class: "btn btn-default"
+= link_to "Deletar", icecream_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default"
