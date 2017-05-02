@@ -41,7 +41,7 @@ class IcecreamsController < ApplicationController
 	private
 
 	def icecream_params
-		params.require(:icecream).permit(:title, :description, :price)
+		params.require(:icecream).permit(:title, :description, :price, :image)
 	end
 
 	def find_icecream

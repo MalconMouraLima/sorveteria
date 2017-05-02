@@ -1,0 +1,25 @@
+!!! 5
+%html
+%head
+	%title Perruci
+	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+	= javascript_include_tag 'application', 'data-turbolinks-track' => true
+	= csrf_meta_tags
+
+%body
+	%nav.navbar.navbar-default
+		.container
+			.navbar-brand= link_to "Sorvetes Perruci", root_path
+
+
+			%ul.nav.navbar-nav.navbar-right
+				%li= link_to "Novo Sorvete", new_icecream_path
+				%li= link_to "Pedido", root_path
+				%li= link_to "Bairros e Taxas", root_path
+				%li= link_to "Sobre Nós", root_path
+				%li= link_to "Sair", root_path #, destroy_user_session_path, method: :delete
+
+	.container
+		- flash.each do |name, msg|
+			= content_tag :div, msg, class: "alert"
+		= yield

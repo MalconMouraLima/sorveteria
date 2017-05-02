@@ -1,2 +1,9 @@
-- @icecream.each do |icecream|
-  %h2= link_to icecream.title, icecream
+- @icecream.each_slice(3) do |icecreams|
+  .row
+    - icecreams.each do |icecream|
+      .col-md-4
+        .recipe
+          .image_wrapper
+            = link_to icecream do
+              = image_tag icecream.image.url(:medium)
+            %h2= link_to icecream.title, icecream
